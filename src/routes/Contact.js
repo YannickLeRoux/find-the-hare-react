@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Contact = () => {
-  return (
-    <React.Fragment>
-    <div className="text-container">
-    <h1>Contact</h1>
-    <h2>Please contact me at info@findthehare.com</h2>
-    </div>
-    </React.Fragment>
-  );
+import PropType from 'prop-types';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+
+import { showHeader } from '../actions';
+
+import ContactForm from '../components/ContactForm';
+
+class Contact extends Component {
+  componentWillMount() {
+    this.props.showHeader();
+  }
+  render() {
+
+    return (
+      <React.Fragment>
+        <div className="text-container">
+          <h2>Contact Lauren: </h2>
+          <ContactForm />
+        </div>
+      </React.Fragment>
+    );
+  }
 
 };
 
-export default Contact;
+
+Contact.propTypes = {
+  showHeader: PropType.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ showHeader }, dispatch)
+};
+
+
+
+export default connect(null, mapDispatchToProps)(Contact);

@@ -22,14 +22,13 @@ class App extends Component {
 
   render() {
 
-
     const store = createStore(reducers);
 
     return (
       <Provider store={ store}>
-          <div className="App">
-            <RootComponent />
-          </div>
+        <div className="App">
+          <RootComponent />
+        </div>
       </Provider>
     );
   }

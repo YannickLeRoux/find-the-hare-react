@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Logo from './Logo';
 import SocialIcons from './SocialIcons';
 
@@ -10,7 +11,7 @@ class Header extends Component {
   render() {
       if (this.state.display) {
           return (
-            <React.Fragment>
+              <React.Fragment>
               <Logo/>
               <SocialIcons />
             </React.Fragment>

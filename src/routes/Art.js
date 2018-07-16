@@ -14,9 +14,9 @@ class Art extends Component {
     this.props.hideHeader();
   }
 
-  componentWillUnmount() {
-    this.props.showHeader();
-  }
+  // componentWillUnmount() {
+  //   this.props.showHeader();
+  // }
 
 
   render() {

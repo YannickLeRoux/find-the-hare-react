@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
+
 import Frame from '../components/Frame';
 import Canvas from '../components/Canvas';
 import Header from '../components/Header';
@@ -20,24 +21,25 @@ class RootComponent extends Component {
 
     const Main = () => (
       <Switch>
+        <Route activeClassName="active" path="/art" component={Art} />
+        <Route activeClassName="active" path="/about" component={About} />
+        <Route activeClassName="active" path="/contact" component={Contact} />
         <Route exact activeClassName="active" path="/" component={Home} />
-        <Route exact activeClassName="active" path="/art" component={Art} />
-
-        <Route exact activeClassName="active" path="/about" component={About} />
-        <Route exact activeClassName="active" path="/contact" component={Contact} />
       </Switch>
     );
 
     return(
+      <React.Fragment>
     <BrowserRouter>
       <Frame>
         <Canvas />
         { this.props.isHeaderVisible && <Header /> }
-        { !this.props.isHeaderVisible && <ArrowBack />}
+        { !this.props.isHeaderVisible && <ArrowBack /> }
         <Main />
-        <NavBar />
+    { this.props.isHeaderVisible && <NavBar /> }
       </Frame>
     </BrowserRouter>
+    </React.Fragment>
 
     );
   }
